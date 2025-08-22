@@ -46,6 +46,7 @@ def openai_generate_answer(prompt, openai_token, model_id="gpt-3.5-turbo", max_t
 
 # ===========================
 # Upload PDF
+uploaded_file = st.file_uploader("Tải lên file PDF", type="pdf")
 if uploaded_file:
     if st.session_state.get("last_uploaded") != uploaded_file.name:
         with st.spinner("Đang trích xuất nội dung PDF..."):
