@@ -5,3 +5,4 @@ supabase
 langchain-community
 transformers
 PyPDF2
+sentence-transformers
