@@ -1,0 +1,7 @@
+streamlit
+openai
+langchain
+supabase
+langchain-community
+transformers
+PyPDF2
