@@ -91,10 +91,10 @@ Nội dung:
 Câu hỏi: {question}
 Trả lời:"""
 
-        with st.spinner("Đang sinh câu trả lời với OpenAI..."):
+        with st.spinner("Đang sinh câu trả lời ..."):
             answer = openai_generate_answer(prompt, OPENAI_API_KEY, model_id="gpt-3.5-turbo", max_tokens=256)
         
-        st.write("Context:", context)
+        #st.write("Context:", context)
         st.write("---")
         st.subheader("Câu trả lời:")
 
@@ -102,3 +102,4 @@ Trả lời:"""
     else:
 
         st.error("Vui lòng nhập câu hỏi trước khi tìm kiếm.")
+
