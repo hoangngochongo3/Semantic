@@ -46,20 +46,20 @@ def openai_generate_answer(prompt, openai_token, model_id="gpt-3.5-turbo", max_t
 
 # ===========================
 # Upload PDF
-# uploaded_file = st.file_uploader("Tải lên file PDF", type="pdf")
+uploaded_file = st.file_uploader("Tải lên file PDF", type="pdf")
 
-# if uploaded_file and "embedding_saved" not in st.session_state:
-#     with st.spinner("Đang trích xuất nội dung PDF..."):
-#         with open("temp.pdf", "wb") as f:
-#             f.write(uploaded_file.read())
-#         text = extract_text_from_pdf("temp.pdf")
-#         text = text.replace('\x00', '')  # loại bỏ ký tự NULL
+if uploaded_file and "embedding_saved" not in st.session_state:
+    with st.spinner("Đang trích xuất nội dung PDF..."):
+        with open("temp.pdf", "wb") as f:
+            f.write(uploaded_file.read())
+        text = extract_text_from_pdf("temp.pdf")
+        text = text.replace('\x00', '')  # loại bỏ ký tự NULL
 
-#     with st.spinner("Đang lưu embedding vào Supabase..."):
-#         build_vector_store(text)
+    with st.spinner("Đang lưu embedding vào Supabase..."):
+        build_vector_store(text)
 
-#     st.session_state["embedding_saved"] = True
-#     st.success("Đã lưu embedding vào Supabase! Bạn có thể hỏi ngay.")
+    st.session_state["embedding_saved"] = True
+    st.success("Đã lưu embedding vào Supabase! Bạn có thể hỏi ngay.")
 
 # ===========================
 # Nhập câu hỏi
@@ -100,4 +100,5 @@ Trả lời:"""
 
         st.write(answer)
     else:
+
         st.error("Vui lòng nhập câu hỏi trước khi tìm kiếm.")
