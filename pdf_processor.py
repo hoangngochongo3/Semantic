@@ -6,4 +6,8 @@ def extract_text_from_pdf(pdf_path):
         reader = PyPDF2.PdfReader(f)
         for page in reader.pages:
             text += page.extract_text() + "\n"
-    return text
+            title=text.splitlines()[0]
+    lines = text.splitlines()
+    title = lines[0] if lines else ""
+    text_without_first_line = "\n".join(lines[1:]) if len(lines) > 1 else ""
+    return title,text_without_first_line
