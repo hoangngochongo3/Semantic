@@ -3,7 +3,6 @@ openai
 langchain
 langchain-community
 supabase
-postgrest==0.10.6
 transformers
 PyPDF2
 sentence-transformers
