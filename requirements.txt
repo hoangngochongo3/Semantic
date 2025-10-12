@@ -1,8 +1,8 @@
 streamlit
 openai
-langchain==0.1.17
-langchain-community==0.0.28
-supabase==2.4.0
+langchain
+langchain-community
+supabase
 postgrest==0.10.6
 transformers
 PyPDF2
