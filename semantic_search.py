@@ -49,7 +49,8 @@ def build_vector_store(text, sep=None,title=None):
         table_name="documents"
     )
     return vectorstore
-def search_answer(vectorstore, question, top_k=2):
+def search_answer(vectorstore, question, top_k=3):
     docs = vectorstore.similarity_search(question, k=top_k)
     return docs
     # return "\n\n".join([doc.page_content for doc in docs])
+
