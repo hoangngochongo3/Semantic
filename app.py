@@ -108,7 +108,11 @@ question = st.text_input("Nhập câu hỏi:")
 if st.button("Submit"):
     if question:
         supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-        embeddings = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
+        # embeddings = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
+        embeddings = HuggingFaceEmbeddings(
+            model_name="intfloat/multilingual-e5-base",
+            model_kwargs={"device": "cpu"}
+        )
 
         vectorstore = SupabaseVectorStore(
             embedding=embeddings,
@@ -152,3 +156,4 @@ Trả lời:
         save_question_to_supabase(supabase, question)
     else:
         st.error("Vui lòng nhập câu hỏi trước khi tìm kiếm.")
+
